@@ -3,7 +3,7 @@ Our main issue tracker for ISV security issues, such as the SSL/TLS configuratio
 
 If you are listed in a ticket and not sure how to resolve the issue, please let us know with a ticket comment; we're happy to point you in the right direction, give you pointers on what to look for and such!
 
-##### What to aim for when updating
+#### What to aim for when updating
 
 We're well aware that it's not always possible to walk the cutting edge when it comes to your SSL/TLS deployment, due to limitations in software and/or hardware you have no control over, but in general; aim high!
 
@@ -31,7 +31,7 @@ EECDH+AES128:EECDH+AES256:EDH+AES128+SHA:RSA+AES+SHA:RSA+3DES:+SHA:!DSS
 
 With the above, you should be able to achieve decent results even on older systems that only support TLSv1 and lack support for ECDHE ciphers. But again, if you're in that situation, try putting something more recent in front.
 
-##### Further Reading
+#### Further Reading
 
 Start with the [documentation provided by Qualys for the SSL Server Test](https://www.ssllabs.com/projects/documentation/index.html), and follow the recommendations from the test itself. The items that are flagged for improvement will usually have a 'more info' link that explains the why and how. Here's a list of useful documentation and tools;
 

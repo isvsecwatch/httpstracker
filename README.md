@@ -36,6 +36,7 @@ With the above, you should be able to achieve decent results even on older syste
 Start with the [documentation provided by Qualys for the SSL Server Test](https://www.ssllabs.com/projects/documentation/index.html), and follow the recommendations from the test itself. The items that are flagged for improvement will usually have a 'more info' link that explains the why and how. Here's a list of useful documentation and tools;
 
 * SSL Server Test documentation: https://www.ssllabs.com/projects/documentation/index.html
+* The OpenSSL Cookbook: https://www.feistyduck.com/library/openssl-cookbook/
 * On optimizing TLS for performance: https://istlsfastyet.com/
 * Mozilla's recommendations for servers: https://wiki.mozilla.org/Security/Server_Side_TLS
 * The 'Applied Crypto Hardening' guide: https://bettercrypto.org/

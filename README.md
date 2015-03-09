@@ -9,6 +9,8 @@ We're well aware that it's not always possible to walk the cutting edge when it 
 
 Anything you get done now will mean you don't have to get back to it later, and you should be good for a while. Or until the next vulnerability hits, anyway. Scroll down for some reading material. Here are some basics;
 
+* **If it's online, maintain it**: 'we are going to replace it soon' is never an excuse to leave a vulnerable setup online. Maintain it, updating and tuning it as needed. Even if you're going to replace it in a month or so.
+
 * **Compare configuration to documentation**: More often than we'd like to admit, things like this are installed or upgraded without verifying that the configuration is set up correctly. Apache and IIS have embarrassingly insecure defaults, for example, so try tuning what you have first.
 
 * **Aim for TLSv1.2**: upgrade your web server for this, if you can. This version offers the most secure ciphers currently available, which many clients will negotiate if they can. If you're stuck with an older version of the web server that ships with your operating system, try putting something else in front, such as [nginx](http://nginx.org/), or a recent version of [stunnel](https://www.stunnel.org/).

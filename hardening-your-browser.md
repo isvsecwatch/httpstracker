@@ -14,6 +14,6 @@ Chrome requires starting it via the terminal;
 ```
 #!/bin/zsh
 #
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --cipher-suite-blacklist=0x0004,0x0005,0xc011,0xc007 &
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --cipher-suite-blacklist=0x0004,0x0005,0xc011,0xc007,0x000A &
 ```
 The above disables RC4 and 3DES. I have this wrapped in a little Platypus application, as detailed here; https://twitter.com/sindarina/status/561577239129911296

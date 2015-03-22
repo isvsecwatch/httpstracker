@@ -23,7 +23,7 @@ Anything you get done now will mean you don't have to get back to it later, and 
  * DHE AES 128-bit for older clients, if necessary (DHE-RSA-AES128-SHA)
  * Static AES SHA1 ciphers for older clients, if necessary (AES128-SHA, AES256-SHA)
  * 3DES for IE/Schannel on XP/2003, if necessary (DES-CBC3-SHA)
- * RC4 (SHA > MD5), but *only* if you have clients that support absolutely *nothing* of the above. The group of people that actually *needs* this is very small, and you won't be in it if your visitors are browser-based, or on fairly recent mobile devices. Check your web statistics, and make sure that the outliers aren't actually bots.
+ * RC4 (SHA > MD5), but *only* if you have clients that support absolutely *nothing* of the above. See the note on RC4, below.
 
 This is what we use in production where 3DES is still needed, test with `openssl ciphers -v`:
 ```
@@ -32,6 +32,19 @@ EECDH+AES128:EECDH+AES256:EDH+AES128+SHA:RSA+AES+SHA:RSA+3DES:+SHA:!DSS
 *(Requires OpenSSL 1.0)*
 
 With the above, you should be able to achieve decent results even on older systems that only support TLSv1 and lack support for ECDHE ciphers. But again, if you're in that situation, try putting something more recent in front.
+
+#### A note on RC4
+
+Short version: *TURN OFF RC4, you do not need it.*
+
+RC4 is becoming increasingly vulnerable, and you do not need it any longer to mitigate other vulnerabilities. There are still some clients out there that support nothing else, but the group of people that actually *needs* this is very small, and you won't be in it if your visitors are browser-based, or on fairly recent mobile devices. Check your web statistics, and make sure that the outliers aren't actually bots.
+
+If you aren't sure, *err on the side of caution and disable RC4*. Here's some of the reasons why;
+
+* Practical password attack against RC4; http://www.isg.rhul.ac.uk/tls/RC4mustdie.html
+* Tornado attack on RC4 (WEP/WPA); https://eprint.iacr.org/2015/254
+* The upcoming Bar Mitzvah attack; https://www.blackhat.com/asia-15/briefings.html#bar-mitzva-attack-breaking-ssl-with-13-year-old-rc4-weakness
+* Prohibiting RC4 Cipher Suites; https://tools.ietf.org/html/rfc7465
 
 #### Further Reading
 

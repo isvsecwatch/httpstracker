@@ -41,9 +41,10 @@ RC4 is becoming increasingly vulnerable, and you do not need it any longer to mi
 
 If you aren't sure, *err on the side of caution and disable RC4*. Here's some of the reasons why;
 
+* SSL Server Test will deprecate from B to C to F in 2015; https://community.qualys.com/blogs/securitylabs/2015/04/23/ssl-labs-rc4-deprecation-plan
 * Practical password attack against RC4; http://www.isg.rhul.ac.uk/tls/RC4mustdie.html
 * Tornado attack on RC4 (WEP/WPA); https://eprint.iacr.org/2015/254
-* The upcoming Bar Mitzvah attack; https://www.blackhat.com/asia-15/briefings.html#bar-mitzva-attack-breaking-ssl-with-13-year-old-rc4-weakness
+* Bar Mitzvah attack on RC4; http://www.darkreading.com/attacks-breaches/ssl-tls-suffers-bar-mitzvah-attack-/d/d-id/1319633
 * Prohibiting RC4 Cipher Suites; https://tools.ietf.org/html/rfc7465
 
 #### Further Reading

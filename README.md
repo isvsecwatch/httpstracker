@@ -62,7 +62,7 @@ Relevant RFCs;
 
 * Summarizing Known Attacks on TLS/DTLS: https://datatracker.ietf.org/doc/rfc7457/
 * Prohibiting RC4 Cipher Suites: https://tools.ietf.org/html/rfc7465
-* Recommendations for Secure Use of TLS and DTLS: https://datatracker.ietf.org/doc/draft-ietf-uta-tls-bcp/
+* Recommendations for Secure Use of TLS and DTLS: https://datatracker.ietf.org/doc/rfc7525/
 
 Various articles from around the web;
 

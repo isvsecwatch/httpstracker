@@ -5,7 +5,7 @@ If you are listed in a ticket and not sure how to resolve the issue, please let 
 
 #### What to aim for when updating
 
-We're well aware that it's not always possible to walk the cutting edge when it comes to your SSL/TLS deployment, due to limitations in software and/or hardware you have no control over, but in general; aim high!
+We're well aware that it's not always possible to walk the cutting edge when it comes to your SSL/TLS deployment, due to limitations in software and/or hardware you have no control over, but in general; aim high! For current best practice, see [RFC 7525](https://tools.ietf.org/html/rfc7525).
 
 Anything you get done now will mean you don't have to get back to it later, and you should be good for a while. Or until the next vulnerability hits, anyway. Scroll down for some reading material. Here are some basics;
 

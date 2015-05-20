@@ -20,9 +20,9 @@ Anything you get done now will mean you don't have to get back to it later, and 
 * **Optimize your cipher order**: strongest ciphers at the top, weakest at the bottom. And make sure the server sets the preferred cipher order, not the client. That means, in terms of priority;
  * ECDHE AES GCM ciphers, if supported
  * ECDHE AES CBC ciphers, preferring SHA256+ over SHA1
- * DHE AES 128-bit for older clients, if necessary (DHE-RSA-AES128-SHA); use 2048-bit DH keys or stronger, with a unique DH group per server. See the DH/DHE note, below.
- * Static AES SHA1 ciphers for older clients, if necessary (AES128-SHA, AES256-SHA)
- * 3DES for IE/Schannel on XP/2003, if necessary (DES-CBC3-SHA)
+ * DHE AES 128-bit for older clients, *if necessary* (DHE-RSA-AES128-SHA); use 2048-bit DH keys or stronger, with a unique DH group per server. [See the DH/DHE note below](#a-note-on-dhdhe).
+ * Static AES SHA1 ciphers for older clients, *if necessary* (AES128-SHA, AES256-SHA)
+ * 3DES for IE/Schannel on XP/2003, *if necessary* (DES-CBC3-SHA)
  * RC4 (SHA > MD5), but *only* if you have clients that support absolutely *nothing* of the above. See the note on RC4, below.
 
 This is what we use in production where 3DES is still needed, test with `openssl ciphers -v`:
@@ -54,6 +54,8 @@ If you need to DHE ciphers, for older clients or because your SSL implementation
 * Logjam Attack: https://weakdh.org/
 * Logjam DH deployment guide; https://weakdh.org/sysadmin.html
 * Logjam article at Ars; http://arstechnica.com/security/2015/05/https-crippling-attack-threatens-tens-of-thousands-of-web-and-mail-servers/
+
+You should no longer be using DHE with versions of Apache (2.2.x) that support a maximum DH key size of 1024 bits. Disable DH completely, using only ECDHE, or upgrade to something that supports stronger DH keys; Apache 2.4.x, nginx, stunnel.
 
 #### Further Reading
 

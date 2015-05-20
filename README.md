@@ -20,7 +20,7 @@ Anything you get done now will mean you don't have to get back to it later, and 
 * **Optimize your cipher order**: strongest ciphers at the top, weakest at the bottom. And make sure the server sets the preferred cipher order, not the client. That means, in terms of priority;
  * ECDHE AES GCM ciphers, if supported
  * ECDHE AES CBC ciphers, preferring SHA256+ over SHA1
- * DHE AES 128-bit for older clients, if necessary (DHE-RSA-AES128-SHA)
+ * DHE AES 128-bit for older clients, if necessary (DHE-RSA-AES128-SHA); use 2048-bit DH keys or stronger, with a unique DH group per server. See the DH/DHE note, below.
  * Static AES SHA1 ciphers for older clients, if necessary (AES128-SHA, AES256-SHA)
  * 3DES for IE/Schannel on XP/2003, if necessary (DES-CBC3-SHA)
  * RC4 (SHA > MD5), but *only* if you have clients that support absolutely *nothing* of the above. See the note on RC4, below.
@@ -46,6 +46,14 @@ If you aren't sure, *err on the side of caution and disable RC4*. Here's some of
 * Tornado attack on RC4 (WEP/WPA); https://eprint.iacr.org/2015/254
 * Bar Mitzvah attack on RC4; http://www.darkreading.com/attacks-breaches/ssl-tls-suffers-bar-mitzvah-attack-/d/d-id/1319633
 * Prohibiting RC4 Cipher Suites; https://tools.ietf.org/html/rfc7465
+
+#### A note on DH/DHE
+
+If you need to DHE ciphers, for older clients or because your SSL implementation does not support ECDHE, make sure you are using 2048-bit DH keys, generating a unique DH group per server. With the release of the details of the Logjam attack, 1024-bit keys are considered to be within the reach of state-level adversaries, and therefore no longer safe;
+
+* Logjam Attack: https://weakdh.org/
+* Logjam DH deployment guide; https://weakdh.org/sysadmin.html
+* Logjam article at Ars; http://arstechnica.com/security/2015/05/https-crippling-attack-threatens-tens-of-thousands-of-web-and-mail-servers/
 
 #### Further Reading
 

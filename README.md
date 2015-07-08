@@ -62,6 +62,7 @@ You should no longer be using DHE with versions of Apache (2.2.x) that support a
 
 Start with the [documentation provided by Qualys for the SSL Server Test](https://www.ssllabs.com/projects/documentation/index.html), and follow the recommendations from the test itself. The items that are flagged for improvement will usually have a 'more info' link that explains the why and how. Here's a list of useful documentation and tools;
 
+* 10 Reasons To Use HTTPS: https://medium.com/@guypod/10-reasons-to-go-https-a2cba5734bb6
 * SSL Server Test documentation: https://www.ssllabs.com/projects/documentation/index.html
 * The OpenSSL Cookbook: https://www.feistyduck.com/library/openssl-cookbook/
 * On optimizing TLS for performance: https://istlsfastyet.com/

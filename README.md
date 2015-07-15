@@ -23,7 +23,7 @@ Anything you get done now will mean you don't have to get back to it later, and 
  * DHE AES 128-bit for older clients, *if necessary* (DHE-RSA-AES128-SHA); use DH keys that are at least 2048 bits in size. [See the DH/DHE note below](#a-note-on-dhdhe).
  * Static AES SHA1 ciphers for older clients, *if necessary* (AES128-SHA, AES256-SHA)
  * 3DES for IE/Schannel on XP/2003, *if necessary* (DES-CBC3-SHA)
- * RC4 (SHA > MD5), but *only* if you have clients that support absolutely *nothing* of the above. See the note on RC4, below.
+ * ~~RC4 (SHA > MD5), but *only* if you have clients that support absolutely *nothing* of the above.~~ [See the note on RC4, below](#a-note-on-rc4).
 
 This is what we use in production where 3DES is still needed, test with `openssl ciphers -v`:
 ```
@@ -35,12 +35,13 @@ With the above, you should be able to achieve decent results even on older syste
 
 #### A note on RC4
 
-Short version: *TURN OFF RC4, you do not need it.*
+Short version: *TURN OFF RC4; it's vulnerable, and you do not need it.*
 
 RC4 is becoming increasingly vulnerable, and you do not need it any longer to mitigate other vulnerabilities. There are still some clients out there that support nothing else, but the group of people that actually *needs* this is very small, and you won't be in it if your visitors are browser-based, or on fairly recent mobile devices. Check your web statistics, and make sure that the outliers aren't actually bots.
 
 If you aren't sure, *err on the side of caution and disable RC4*. Here's some of the reasons why;
 
+* RC4 NOMORE attack (2015/07/15); http://www.rc4nomore.com/
 * SSL Server Test will deprecate from B to C to F in 2015; https://community.qualys.com/blogs/securitylabs/2015/04/23/ssl-labs-rc4-deprecation-plan
 * Practical password attack against RC4; http://www.isg.rhul.ac.uk/tls/RC4mustdie.html
 * Tornado attack on RC4 (WEP/WPA); https://eprint.iacr.org/2015/254

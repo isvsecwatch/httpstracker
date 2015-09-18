@@ -41,6 +41,7 @@ RC4 is becoming increasingly vulnerable, and you do not need it any longer to mi
 
 If you aren't sure, *err on the side of caution and disable RC4*. Here's some of the reasons why;
 
+* Google is deprecating RC4 (2015/09/17); http://googleonlinesecurity.blogspot.com/2015/09/disabling-sslv3-and-rc4.html
 * RC4 NOMORE attack (2015/07/15); http://www.rc4nomore.com/
 * SSL Server Test will deprecate from B to C to F in 2015; https://community.qualys.com/blogs/securitylabs/2015/04/23/ssl-labs-rc4-deprecation-plan
 * Practical password attack against RC4; http://www.isg.rhul.ac.uk/tls/RC4mustdie.html

@@ -83,6 +83,7 @@ Start with the [documentation provided by Qualys for the SSL Server Test](https:
 * Mozilla's recommendations for servers: https://wiki.mozilla.org/Security/Server_Side_TLS
 * The 'Applied Crypto Hardening' guide: https://bettercrypto.org/
 * Nartac Software's IISCrypto: https://www.nartac.com/Products/IISCrypto/Default.aspx
+* SSL Labs list of user agent capabilities; https://www.ssllabs.com/ssltest/clients.html
 
 **Testing/Verification;**
 

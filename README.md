@@ -84,13 +84,21 @@ Start with the [documentation provided by Qualys for the SSL Server Test](https:
 * The 'Applied Crypto Hardening' guide: https://bettercrypto.org/
 * Nartac Software's IISCrypto: https://www.nartac.com/Products/IISCrypto/Default.aspx
 
-Relevant RFCs;
+**Testing/Verification;**
+
+* SSL Server Test; https://www.ssllabs.com/ssltest/index.html
+* Cipherscan; https://github.com/jvehent/cipherscan
+* testssl.sh; https://testssl.sh/
+* SSLyze; https://github.com/nabla-c0d3/sslyze
+* SSL Server Test CLI client; https://github.com/ssllabs/ssllabs-scan/
+
+**Relevant RFCs;**
 
 * Summarizing Known Attacks on TLS/DTLS: https://datatracker.ietf.org/doc/rfc7457/
 * Prohibiting RC4 Cipher Suites: https://tools.ietf.org/html/rfc7465
 * Recommendations for Secure Use of TLS and DTLS: https://tools.ietf.org/html/rfc7525
 
-Various articles from around the web;
+**Various articles from around the web;**
 
 * https://scotthelme.co.uk/getting-an-a-on-the-qualys-ssl-test-windows-edition/ (IIS)
 * https://www.hass.de/content/setup-your-iis-ssl-perfect-forward-secrecy-and-tls-12 (IIS)

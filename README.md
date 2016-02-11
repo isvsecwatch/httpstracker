@@ -25,13 +25,25 @@ Anything you get done now will mean you don't have to get back to it later, and 
  * 3DES for IE/Schannel on XP/2003, *if necessary* (DES-CBC3-SHA)
  * ~~RC4 (SHA > MD5), but *only* if you have clients that support absolutely *nothing* of the above.~~ [See the note on RC4, below](#a-note-on-rc4).
 
-This is what we use in production where 3DES is still needed, test with `openssl ciphers -v`:
+This is what we use in production, depending on compatibility requirements, test with `openssl ciphers -v`:
 ```
-EECDH+AES128:EECDH+AES256:EDH+AES128+SHA:RSA+AES+SHA:RSA+3DES:+SHA:!DSS
-```
-*(Requires OpenSSL 1.0)*
+# 1) RSA/ECDSA: recommended for modern browsers/clients
+EECDH+AES128+AESGCM:EECDH+AES256:EECDH+AES128:+SHA:!DSS
 
-With the above, you should be able to achieve decent results even on older systems that only support TLSv1 and lack support for ECDHE ciphers. But again, if you're in that situation, try putting something more recent in front.
+# 2) RSA: recommended with backwards compatibility for older, supported clients
+EECDH+AES128+AESGCM:EECDH+AES256:EECDH+AES128:EDH+AES128+SHA:AES128-SHA:+SHA:!DSS
+
+# 3) RSA: as #2 above, but including support for 3DES
+EECDH+AES128+AESGCM:EECDH+AES256:EECDH+AES128:EDH+AES128+SHA:AES128-SHA:DES-CBC3-SHA:+SHA:!DSS
+
+# 4) RSA: extended compatibility with clients that don't do ECDHE, like for APIs
+EECDH+AES128+AESGCM:EECDH+AES256+AESGCM:EDH+AESGCM:EECDH+AES256:EECDH+AES128:+SHA:EDH+AES:+SHA:RSA+AES+SHA:!DSS
+```
+*NOTE: These ciper selections prefer 256-bit AES over 128-bit AES for CBC and DHE ciphers, due in part to updated post-Suite B NSA recommendations. The 128-bit AES-GCM cipher remains at the top due to it's preferred support in modern browsers such as Chrome and Firefox, which currently do not support the 256-bit version.*
+
+*Requires OpenSSL 1.0 or higher.*
+
+You should be able to achieve decent results even on older systems that only support TLSv1 and lack support for ECDHE ciphers. But again, if you're in that situation, try putting something more recent in front.
 
 #### A note on RC4
 

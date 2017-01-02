@@ -1,3 +1,7 @@
+**NOTE 2017/01/02**: This project is on hold until further notice, and will not be actively maintained in the meantime.
+
+--
+
 # httpstracker
 Our [main issue tracker for ISV security issues](https://github.com/isvsecwatch/httpstracker/issues), such as the SSL/TLS configuration of their online stores. Please check if an issue already exists before filing a new one.
 
